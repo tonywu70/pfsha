@@ -295,7 +295,8 @@ tune_storage()
 	sed -i 's/^tuneFileReadAheadTriggerSize.*/tuneFileReadAheadTriggerSize = 2m/g' /etc/beegfs/beegfs-storage.conf
 	sed -i 's/^tuneFileReadSize.*/tuneFileReadSize = 256k/g' /etc/beegfs/beegfs-storage.conf
 	sed -i 's/^tuneFileWriteSize.*/tuneFileWriteSize = 256k/g' /etc/beegfs/beegfs-storage.conf
-	sed -i 's/^tuneWorkerBufSize.*/tuneWorkerBufSize = 16m/g' /etc/beegfs/beegfs-storage.conf	
+	sed -i 's/^tuneWorkerBufSize.*/tuneWorkerBufSize = 16m/g' /etc/beegfs/beegfs-storage.conf
+	sed -i 's/^storeAllowFirstRunInit.*/storeAllowFirstRunInit = false/g' /etc/beegfs/beegfs-storage.conf
 }
 
 tune_meta()
@@ -306,6 +307,7 @@ tune_meta()
 	#echo 128 > /sys/block/md20/queue/read_ahead_kb
 
 	sed -i 's/^connMaxInternodeNum.*/connMaxInternodeNum = 800/g' /etc/beegfs/beegfs-meta.conf
+	sed -i 's/^storeAllowFirstRunInit.*/storeAllowFirstRunInit = false/g' /etc/beegfs/beegfs-meta.conf
 	sed -i 's/^tuneNumWorkers.*/tuneNumWorkers = 128/g' /etc/beegfs/beegfs-meta.conf
 }
 
